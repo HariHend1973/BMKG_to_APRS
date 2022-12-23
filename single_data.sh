@@ -20,6 +20,7 @@ data=$(cat autogempa.xml); jam=$(grep -oPm1 "(?<=<Jam>)[^<]+" <<< "$data")
 data=$(cat autogempa.xml); Magnitude=$(grep -oPm1 "(?<=<Magnitude>)[^<]+" <<< "$data")
 data=$(cat autogempa.xml); Kedalaman=$(grep -oPm1 "(?<=<Kedalaman>)[^<]+" <<< "$data")
 data=$(cat autogempa.xml); Potensi=$(grep -oPm1 "(?<=<Potensi>)[^<]+" <<< "$data")
+data=$(cat autogempa.xml); Wilayah=$(grep -oPm1 "(?<=<Wilayah>)[^<]+" <<< "$data")
 data=$(cat autogempa.xml); koordinat=$(grep -oPm1 "(?<=<coordinates>)[^<]+" <<< "$data")
 koordinat2=$(<<< $koordinat sed 's/,/ /g')
 koordinat3=$(GeoConvert -d -p -1 --input-string "$koordinat2")
@@ -32,12 +33,14 @@ y=$(awk '{print $2}' <<< "$koordinat6");
 #construction packet
 position="!$x/$y\Q"
 comment=" $tanggal $jam Magnitude:$Magnitude Kedalaman:$Kedalaman Potensi:$Potensi"
+Status="${address}>$Wilayah"
 packet="${address}${position}${comment}"
 
 #send data to IG server
 nc -C $serverHost $serverPort -q 10 <<-END
 $login
 $packet
+$Status
 END
 if [ "$1" = "1" ]
 then
