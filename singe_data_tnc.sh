@@ -1,14 +1,13 @@
 clear
 #by YD1RUH
 #modified by YD0BCX
+#in another console type
+#mkdir tmp/
+#kissutil -f tmp/
+#execute this script
 
-#informasi serrver
-serverHost="t2kk.kutukupret.com"
-serverPort="14580"
 callsign="YD0BCX-1"
-password="22972"
 address="[0] ${callsign}>APRS,WIDE1-1,WIDE2-1:"
-login="user $callsign pass $password vers ShellBeacon 1.0"
 delay="60" #dalam detik
 
 while true
@@ -42,9 +41,6 @@ cat > tmp/frame << END
 $packet
 $Status
 END
-#in another console type
-#mkdir tmp/
-#kissutil -f tmp/
 
 if [ "$1" = "1" ]
 then
