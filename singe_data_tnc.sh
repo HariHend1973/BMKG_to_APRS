@@ -42,6 +42,7 @@ cat > tmp/frame << END
 $packet
 $Status
 END
+#in another console type
 #kissutil -f tmp/
 
 if [ "$1" = "1" ]
