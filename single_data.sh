@@ -1,5 +1,6 @@
 clear
 #by YD1RUH
+#modified by YD0BCX
 
 #informasi server
 serverHost=""
@@ -31,7 +32,7 @@ x=$(awk 'NR == 1 {print $1}'  <<< "$koordinat6");
 y=$(awk '{print $2}' <<< "$koordinat6");
 
 #construction packet
-position="!$x/$y\Q"
+position="!$x\\$y!"
 comment=" $tanggal $jam Magnitude:$Magnitude Kedalaman:$Kedalaman Potensi:$Potensi"
 Status="${address}>$Wilayah"
 packet="${address}${position}${comment}"
