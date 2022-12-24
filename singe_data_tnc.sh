@@ -43,6 +43,7 @@ $packet
 $Status
 END
 #in another console type
+#mkdir tmp/
 #kissutil -f tmp/
 
 if [ "$1" = "1" ]
