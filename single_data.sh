@@ -1,6 +1,9 @@
 clear
 #by YD1RUH
 #modified by YD0BCX
+#changelog
+#add status/Wilayah
+#change symbol from /\ to \!
 
 #informasi server
 serverHost=""
