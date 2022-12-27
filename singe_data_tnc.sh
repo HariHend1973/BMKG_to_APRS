@@ -41,6 +41,8 @@ cat > tmp/frame << END
 $packet
 $Status
 END
+echo $packet
+echo $Status
 
 if [ "$1" = "1" ]
 then
