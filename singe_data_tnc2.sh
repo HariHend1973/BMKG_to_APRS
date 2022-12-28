@@ -24,7 +24,7 @@ x=$(echo $koordinat2 | awk '{print $1}')
 y=$(echo $koordinat2 | awk '{print $2}')
 
 #construction packet
-position=$(aprs-weather-submit -C -k ${callsign} -n ${x}  -e ${y} | sed 's/_.*/!/g' | sed 's/\//\\/g' | sed 's/.*\://')
+position=$(aprs-weather-submit -C -k ${callsign} -n ${x}  -e ${y} | sed 's/_.*/!/g' | sed 's/\//\\/g' | sed 's/.*\@/@/')
 comment=" $tanggal $jam Magnitude:$Magnitude Kedalaman:$Kedalaman Potensi:$Potensi"
 Status="${address}>$Wilayah"
 packet="${address}${position}${comment}"
